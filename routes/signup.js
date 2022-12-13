@@ -4,8 +4,7 @@ const SignupController = require('./../controller/SignupController');
 
 router
     .route('/')
-    .get(SignupController)
-    .post()
+    .post(SignupController.createCred)
 
 
 module.exports = router;
