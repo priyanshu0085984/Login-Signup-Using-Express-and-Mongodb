@@ -1,16 +1,18 @@
 const User = require('../models/User');
 
 exports.getAllCred = async(req,res)=>{
-    console.log(req.body);
-    User.find({email:req.body.email})
+
+    const {email,password} =  req.query;
+    User.find({email})
     .then((result)=>{
-        if(result.length===0){
+        console.log(result);
+        if(result.length === 0){
             res.status(400).json({
                 status:'fail',
                 messsage:'User does not exist, try again with a different email'
             })
         }
-        else if(result[0].password === req.body.password){
+        else if(result[0].password === password){
             res.status(200).json({
                 status:'success',
                 messsage:'Authentication Successful'

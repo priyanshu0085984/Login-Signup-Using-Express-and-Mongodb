@@ -4,9 +4,7 @@ const User = require('../models/User');
 exports.createCred = async (req,res)=>{
     await User.find({email:req.body.email})
     .then((result)=>{
-        // console.log(result);
         if(result.length === 0){
-            // console.log(req.body);
             User.create(req.body)
             .then((result1)=>{
                 res.status(200).json({
