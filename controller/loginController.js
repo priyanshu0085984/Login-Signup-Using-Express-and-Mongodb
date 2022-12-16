@@ -9,13 +9,13 @@ exports.getAllCred = async(req,res)=>{
         if(result.length === 0){
             res.status(400).json({
                 status:'fail',
-                messsage:'User does not exist, try again with a different email'
+                message:'User does not exist, try again with a different email'
             })
         }
         else if(result[0].password === password){
             res.status(200).json({
                 status:'success',
-                messsage:'Authentication Successful'
+                message:'Authentication Successful'
             })
         }
         else{
